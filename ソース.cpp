@@ -9,6 +9,7 @@ template<class T> using List = std::map<std::intmax_t, T>;
 template<class T> using ListListA = List<std::list<T>>;//i need replace to std::list to double linked list.//this is holding anpairble vector.
 template<class T> using ListListB = std::list<List<T>>;//this is area holder like... what??
 template<class T> using ListListC = List<List<T>>;//like a duty 2d array??
+template<class T> using ListListD = std::list<std::list<T>>;//like a duty 2d array??
 
 int main() {
 	List<int> L;
@@ -29,7 +30,7 @@ int main() {
 
 	VLB.push_back({});
 	VLB.back()[0] = 9;
-	for (auto& o : VLB) {
+	for (auto& o : VLB) { 
 		std::cout << o[0] << std::endl;
 	}
 
@@ -37,6 +38,14 @@ int main() {
 	LLC[10][20] = 30;
 	for (auto& o : LLC) {
 		std::cout << o.second[20] << std::endl;
+	}
+
+	ListListD<int> LLD;
+	LLD.push_back({});
+	LLD.back().push_back(10);
+
+	for (auto& o : LLD) {
+		std::cout << o.back() << std::endl;
 	}
 
 }
