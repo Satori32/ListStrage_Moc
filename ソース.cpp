@@ -3,7 +3,7 @@
 #include <list>//i need double linked list.
 #include <cstdint>
 
-//basicaly to ListList's A or B or C is not have meen.
+//basicaly to ListList's A or B or C or D is not have meen.
 
 template<class T> using List = std::map<std::intmax_t, T>;
 template<class T> using ListListA = List<std::list<T>>;//i need replace to std::list to double linked list.//this is holding anpairble vector.
@@ -11,6 +11,15 @@ template<class T> using ListListB = std::list<List<T>>;//this is area holder lik
 template<class T> using ListListC = List<List<T>>;//like a duty 2d array??
 template<class T> using ListListD = std::list<std::list<T>>;//like a duty 2d array??
 
+/**/
+enum class Names {
+	none=0,
+	One,
+	tow,
+	three,
+};
+template<class T> using NamedList = std::map<Names, T>;
+/**/
 int main() {
 	List<int> L;
 
