@@ -23,6 +23,16 @@ enum class Names {
 };
 template<class T> using NamedList = std::map<Names, T>;
 /**/
+
+/**/
+enum class Tag {
+	X=0,
+	Y,
+	Z,
+	Hoge,
+};
+template<class Idx,class T> using TagedList = std::map<Idx, T>;//lolololololol you need only name?
+/**/
 int main() {
 	List<int> L;
 
@@ -64,6 +74,12 @@ int main() {
 
 	NL[Names::OreNoNamaeWoItteMiro] = 53;
 	for (auto& o : NL) {
+		std::cout <<(int)o.first<<':'<< o.second << std::endl;
+	}
+
+	TagedList<Tag, int> TL;
+	TL[Tag::X] = 10;
+	for (auto& o : TL) {
 		std::cout <<(int)o.first<<':'<< o.second << std::endl;
 	}
 }
