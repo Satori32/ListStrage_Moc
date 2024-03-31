@@ -2,12 +2,14 @@
 #include <map>
 #include <list>//i need double linked list.
 #include <cstdint>
+#include <unordered_map>>
 
 //https://cpprefjp.github.io/reference/list/list.html
 
 //basicaly to ListList's A or B or C or D is not have meen.
 
-template<class T> using List = std::map<std::intmax_t, T>;
+template<class T> using List = std::unordered_map<std::intmax_t, T>;//cut the sort theory.
+template<class T> using SortdList = std::map<std::intmax_t, T>;
 template<class T> using ListListA = List<std::list<T>>;//i need replace to std::list to double linked list.//this is holding anpairble vector.
 template<class T> using ListListB = std::list<List<T>>;//this is area holder like... what??
 template<class T> using ListListC = List<List<T>>;//like a duty 2d array??
