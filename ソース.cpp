@@ -17,6 +17,7 @@ enum class Names {
 	One,
 	tow,
 	three,
+	OreNoNamaeWoItteMiro,
 };
 template<class T> using NamedList = std::map<Names, T>;
 /**/
