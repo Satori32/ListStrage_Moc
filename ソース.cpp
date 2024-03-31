@@ -2,7 +2,7 @@
 #include <map>
 #include <list>//i need double linked list.
 #include <cstdint>
-#include <unordered_map>>
+#include <unordered_map>
 
 //https://cpprefjp.github.io/reference/list/list.html
 
@@ -73,7 +73,7 @@ int main() {
 		std::cout << o.back() << std::endl;
 	}
 
-	NamedList<int> NL;
+	SortedNamedList<int> NL;
 
 	NL[Names::OreNoNamaeWoItteMiro] = 53;
 	for (auto& o : NL) {
