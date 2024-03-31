@@ -23,7 +23,7 @@ enum class Names {
 	three,
 	OreNoNamaeWoItteMiro,
 };
-template<class T> using NamedList = std::map<Names, T>;
+template<class T> using SortedNamedList = std::map<Names, T>;
 /**/
 
 /**/
@@ -33,7 +33,8 @@ enum class Tag {
 	Z,
 	Hoge,
 };
-template<class Idx,class T> using TagedList = std::map<Idx, T>;//lolololololol you need only name?
+template<class Idx,class T> using TagedList = std::unordered_map<Idx, T>;//lolololololol you need only name?
+template<class Idx,class T> using SoetedTagedList = std::map<Idx, T>;//lolololololol you need only name?
 /**/
 int main() {
 	List<int> L;
