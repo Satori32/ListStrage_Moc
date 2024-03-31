@@ -3,6 +3,8 @@
 #include <list>//i need double linked list.
 #include <cstdint>
 
+//https://cpprefjp.github.io/reference/list/list.html
+
 //basicaly to ListList's A or B or C or D is not have meen.
 
 template<class T> using List = std::map<std::intmax_t, T>;
@@ -58,4 +60,10 @@ int main() {
 		std::cout << o.back() << std::endl;
 	}
 
+	NamedList<int> NL;
+
+	NL[Names::OreNoNamaeWoItteMiro] = 53;
+	for (auto& o : NL) {
+		std::cout <<(int)o.first<<':'<< o.second << std::endl;
+	}
 }
