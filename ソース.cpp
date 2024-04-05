@@ -36,6 +36,15 @@ enum class Tag {
 template<class Idx,class T> using TagedList = std::unordered_map<Idx, T>;//lolololololol you need only name?
 template<class Idx,class T> using SoetedTagedList = std::map<Idx, T>;//lolololololol you need only name?
 /**/
+enum class TagF {
+	None=0,
+	A,
+	B,
+	C,
+};
+template<class T> using TList = TagedList<TagF, T>;
+template<class T, class I = std::intmax_t> using FPocket = TList<TagedList<I, T>>;//formmers pocket. are you need [I=enum class]? 
+
 int main() {
 	List<int> L;
 
