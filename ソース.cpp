@@ -45,6 +45,89 @@ enum class TagF {
 template<class T> using TList = TagedList<TagF, T>;
 template<class T, class I = std::intmax_t> using FPocket = TList<TagedList<I, T>>;//formmers pocket. are you need [I=enum class]? 
 
+enum class ListX
+{
+	None,
+	A,
+	B,
+	C,
+
+};
+template<class Tag,class T>
+class TaggedLinkedList : public std::list<std::pair<Tag, T>> {
+public:
+/**/
+	std::pair<Tag,T>& operator[](Tag E) {
+		for (auto& o : *this) {
+			if (o.first == E)return o;
+		}
+		S.push_back({ E,T() });
+		return this->back();
+
+	}
+	/**/
+
+	std::pair<Tag,T>& back() { return S.back(); }
+	std::pair<Tag,T>& front() { return S.front(); }
+	void push_back(std::pair<Tag,T>& In) {
+		this->push_back(In);
+		return;
+	}
+	void push_front(std::pair<Tag,T>& In) {
+		this->push_front(In);
+		return;
+	}	
+
+protected:
+	std::list<std::pair<Tag, T>>& S = *this;
+
+};
+
+
+/** /
+enum class Linked {
+	None,
+	A,
+	B,
+	C,
+
+};
+
+template<template<class T,class Idx> class X>
+class TagedDoubleLinkedList:public std::list<X<X::T,X::Idx>> {//compiler is die... why??
+public:
+	template<class Tx,class Idxx>
+	struct I{
+		Idxx N{0,};
+		Tx Item{0,};
+	};
+	T& operator[](Idx E) {
+		for (auto& o : *this) {
+			if (o.N == E)return o.Item;
+		}
+		S.push_back({ E,T() });
+		return this->back();
+
+	}
+	T& back() { return static_cast<std::list<T,Idx>>(this)->back(); }
+	T& front() { return static_cast<std::list<T,Idx>>(this)->front(); }
+	void push_back(Idx E, const T& In) {
+		this->push_back({ In,E });
+	}
+	void push_front(Idx E, const T& In) {
+		this->push_front({ In,E });
+	}
+
+//	typename decltype(*this)::iterator begin(){
+//	}
+
+protected:
+	//doubleLinkedListX<T, Idx>& S =  *this;
+	//std::list<I<T, Idx>>& L = *this;
+};
+
+/**/
+/**/
 int main() {
 	List<int> L;
 
@@ -94,4 +177,11 @@ int main() {
 	for (auto& o : TL) {
 		std::cout <<(int)o.first<<':'<< o.second << std::endl;
 	}
+
+	TaggedLinkedList<ListX,int> TLL;
+	TLL[ListX::A].second = 11;
+	for (auto& o : TLL) {
+		std::cout <<(int)o.first<<':'<< o.second << std::endl;
+	}
+
 }
