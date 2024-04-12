@@ -82,7 +82,7 @@ protected:
 	std::list<std::pair<Tag, T>>& S = *this;
 
 };
-
+template<class T, class IA,class IB> using TaggedLinkedListX = TaggedLinkedList<IA,TagedList<IB,T>>;
 
 /** /
 enum class Linked {
