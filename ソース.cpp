@@ -8,6 +8,8 @@
 
 //basicaly to ListList's A or B or C or D is not have meen.
 
+//world master say 'we not pay metric for world but he need accelerater.so metric is not accerlerater'.
+
 template<class T> using List = std::unordered_map<std::intmax_t, T>;//cut the sort theory.
 template<class T> using SortdList = std::map<std::intmax_t, T>;
 template<class T> using ListListA = List<std::list<T>>;//i need replace to std::list to double linked list.//this is holding anpairble vector.
@@ -127,6 +129,38 @@ protected:
 };
 
 /**/
+template<class T>
+class IndexedLinkList :public std::list<T> {
+public:
+	T& operator [](std::size_t N) {
+		auto it = this->begin();
+		for (std::size_t i = 0; i < N; i++) {
+			it++;
+			if (it == this->end()) {
+				return *(this->end());
+			}
+		}
+		return *it;
+	}
+	T& at(std::size_t N) {
+		return (*this)[N];
+	}
+	/** /
+	bool PushBack(const T& In) {
+		this->push_back(In);
+	}
+	bool PushFlont(const T& In) {
+		this->push_front(In);
+	}
+	bool PopBack() {
+		this->pop_back();
+	}
+	bool PopFlont() {
+		this->pop_front();
+	}
+	/**/
+
+};
 /**/
 int main() {
 	List<int> L;
@@ -183,5 +217,12 @@ int main() {
 	for (auto& o : TLL) {
 		std::cout <<(int)o.first<<':'<< o.second << std::endl;
 	}
+
+	IndexedLinkList <List<int>> ILL;
+	ILL.push_back({});
+	auto XXXX = ILL[0];
+	ILL.at(0)[0] = 20;
+	ILL[0][0] = 30;
+
 
 }
