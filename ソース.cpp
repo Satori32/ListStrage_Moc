@@ -2,6 +2,7 @@
 #include <map>
 #include <list>//i need double linked list.
 #include <cstdint>
+#include <vector>
 #include <unordered_map>
 
 //https://cpprefjp.github.io/reference/list/list.html
@@ -17,6 +18,10 @@ template<class T> using ListListB = std::list<List<T>>;//this is area holder lik
 template<class T> using ListListC = List<List<T>>;//like a duty 2d array??
 template<class T> using ListListD = std::list<std::list<T>>;//like a duty 2d array??
 
+typedef std::uint16_t SHA16;//i not learn it spec.to i cant write.
+template<class T> using SimbolizedSingleSetMultiSet16 = std::unordered_map<SHA16, T>;
+typedef std::uint32_t SHA32;//i not learn it spec.to i cant write.
+template<class T> using SimbolizedSingleSetMultiSet32 = std::unordered_map<SHA32, T>;
 /**/
 enum class Names {
 	none=0,
