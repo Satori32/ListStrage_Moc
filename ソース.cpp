@@ -19,9 +19,11 @@ template<class T> using ListListC = List<List<T>>;//like a duty 2d array??
 template<class T> using ListListD = std::list<std::list<T>>;//like a duty 2d array??
 
 typedef std::uint16_t SHA16;//i not learn it spec.to i cant write.
-template<class T> using SimbolizedSingleSetMultiSet16 = std::unordered_map<SHA16, T>;
+template<class T> using SimbolizedSingleSetMultiSet16A = std::unordered_map<SHA16, std::vector<T>>;
+template<class T> using SimbolizedSingleSetMultiSet16B = std::unordered_map<SHA16, std::list<T>>;
 typedef std::uint32_t SHA32;//i not learn it spec.to i cant write.
-template<class T> using SimbolizedSingleSetMultiSet32 = std::unordered_map<SHA32, T>;
+template<class T> using SimbolizedSingleSetMultiSet32A = std::unordered_map<SHA32, std::vector<T>>;
+template<class T> using SimbolizedSingleSetMultiSet32B = std::unordered_map<SHA32, std::list<T>>;
 /**/
 enum class Names {
 	none=0,
