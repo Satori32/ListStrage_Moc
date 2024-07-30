@@ -243,11 +243,19 @@ enum class TagX{
 	C,
 };
 template<class E,class T>
-using ListDeque = std::unordered_map<E, std::deque<T>>;//need to acept foolensee.//一本化は各主体が嫌うのでフヨフヨ浮いててほしいのです。強制隣接とかダメです。cant force pairize. 
-
+using TagedListDeque = std::unordered_map<E, std::deque<T>>;//need to acept foolensee.//一本化は各主体が嫌うのでフヨフヨ浮いててほしいのです。強制隣接とかダメです。cant force pairize. 
+template<class T>
+using IndexedListDeque = std::unordered_map<std::intmax_t, std::deque<T>>;
 int main() {
-	ListDeque<TagX, std::intmax_t> LD;
+	TagedListDeque<TagX, std::intmax_t> LD;
 
 	LD[TagX::A].push_back(1);
 	std::cout << LD[TagX::A][0] << std::endl;
+
+	IndexedListDeque<int> ILD;
+
+	ILD[0].push_back(10);
+	std::cout << ILD[0][0] << std::endl;
+
+	return 0;
 }
