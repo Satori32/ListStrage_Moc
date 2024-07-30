@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <vector>
 #include <unordered_map>
+#include <deque>
 
 //https://cpprefjp.github.io/reference/list/list.html
 
@@ -168,10 +169,10 @@ public:
 	/**/
 
 };
-/**/
+/** /
 int main() {
 	List<int> L;
-
+	
 	L[19] = 130;
 
 	for (auto& o :  L) {
@@ -232,4 +233,21 @@ int main() {
 	ILL[0][0] = 30;
 
 
+}
+/**/
+
+enum class TagX{
+	None,
+	A,
+	B,
+	C,
+};
+template<class E,class T>
+using ListDeque = std::unordered_map<E, std::deque<T>>;//need to acept foolensee.//一本化は各主体が嫌うのでフヨフヨ浮いててほしいのです。強制隣接とかダメです。cant force pairize. 
+
+int main() {
+	ListDeque<TagX, std::intmax_t> LD;
+
+	LD[TagX::A].push_back(1);
+	std::cout << LD[TagX::A][0] << std::endl;
 }
